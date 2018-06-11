@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:1.5.4"
+    }
+}
+
+apply plugin: "io.ratpack.ratpack-java"
+apply plugin: "idea"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    runtime "org.slf4j:slf4j-simple:1.7.25"
+    compile ratpack.dependency('hikari')
+    compile group: 'com.h2database', name: 'h2', version: '1.4.197'
+    compile group: 'org.apache.tika', name: 'tika-core', version: '1.18'
+    compile group: 'org.apache.tika', name: 'tika-parsers', version: '1.18'
+    compile group: 'org.jooq', name: 'jooq', version: '3.11.0'
+}
+
+mainClassName = "controller.Application"
